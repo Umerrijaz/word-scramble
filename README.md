@@ -1,2 +1,2 @@
-# work
-This repo consists of my learning on Harvard CS50 course.
+# Scramble Game
+This repo consis of a game project called word scramble
