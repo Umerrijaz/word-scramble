@@ -1,5 +1,5 @@
 // create an object containing all the words and the hints for those respective words //
-const words = [
+let words = [
     {
         word: "addition",
         hint: "The process of adding numbers"
