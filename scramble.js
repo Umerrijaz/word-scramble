@@ -14,7 +14,7 @@ const initTimer = maxTime =>{
             return timeText.innerText = maxTime;
         }
         clearInterval(timer);
-        alert(`Time ended ${correctWord.toUpperCase} was the correct word`);
+        alert(`Time ended:( ${correctWord.toUpperCase()} was the correct word`);
         initGame();
     }, 1000);
 }
@@ -36,6 +36,7 @@ const initGame = () =>{
     wordText.innerText = wordArray.join("");
     hintText.innerText = randomObj.hint;
     correctWord = randomObj.word.toLocaleLowerCase();
+    inputField.value = "";
 }
 initGame();
 
