@@ -2,9 +2,24 @@ const wordText = document.querySelector(".word"),
 hintText = document.querySelector(".hint span"),
 refreshBtn = document.querySelector(".refresh-word"),
 checkBtn = document.querySelector(".check-word"),
-inputField = document.querySelector("input");
-let correctWord;
+inputField = document.querySelector("input"),
+timeText = document.querySelector(".time b");
+let correctWord, timer;
+
+const initTimer = maxTime =>{
+    clearInterval(timer);
+    timer = setInterval(() =>{
+        if (maxTime > 0){
+            maxTime--;
+            return timeText.innerText = maxTime;
+        }
+        clearInterval(timer);
+        alert(`Time ended ${correctWord.toUpperCase} was the correct word`);
+        initGame();
+    }, 1000);
+}
 const initGame = () =>{
+    initTimer(30);
     //Generate a random number between 0 and the words.length
     //Words is an object containing the key-value pairs of 'word' and 'hint'
     let randomObj = words[Math.floor(Math.random() * words.length)];
@@ -27,8 +42,9 @@ initGame();
 const checkWord = ()=>{
     let userWord = inputField.value.toLocaleLowerCase();
     if(!userWord) return alert("Please input a word");
-    if (userWord !== correctWord) return alert(`Sorry!${userWord} is wrong input`)
-    else (alert(`Yes!${userWord} is correct`));
+    if (userWord !== correctWord) return alert(`Sorry!${userWord} is wrong input`);
+    alert(`Yes!${userWord.toUpperCase()} is correct`);
+    initGame();
 }
 
 refreshBtn.addEventListener ("click", initGame);
