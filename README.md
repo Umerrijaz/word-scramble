@@ -1,2 +1,2 @@
 # Scramble Game
-This repo consis of a game project called word scramble
+This repo consist of a game project called word scramble
